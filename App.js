@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import "./global.css";
@@ -18,6 +19,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+       <StatusBar style="auto" />
+       <SafeAreaView style={{ flex: 1 }}>
       <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
@@ -30,7 +33,7 @@ export default function App() {
         <Stack.Screen name="Support" component={SupportScreen} />
         <Stack.Screen name="Vitals" component={VitalsScreen} />
       </Stack.Navigator>
-      <StatusBar style="auto" />
+     </SafeAreaView>
     </NavigationContainer>
   );
 }
