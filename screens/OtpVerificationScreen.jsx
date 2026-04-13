@@ -1,10 +1,13 @@
 import { useMemo, useState } from "react";
 import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useAppContext } from "../context/AppContext";
 
 export default function OtpVerificationScreen({ navigation, route }) {
   const [otp, setOtp] = useState("");
+  const { login } = useAppContext();
   const phone = route?.params?.phone ?? "";
+
   const maskedPhone = useMemo(() => {
     if (phone.length < 4) return phone;
     return `******${phone.slice(-4)}`;
@@ -14,10 +17,15 @@ export default function OtpVerificationScreen({ navigation, route }) {
     const sanitized = otp.replace(/\D/g, "");
     if (sanitized.length < 4) {
       Alert.alert("Invalid OTP", "Please enter a valid OTP.");
+
       return;
     }
 
-    navigation.replace("Dashboard");
+    // Log the user in — role defaults to "patient" inside AppContext
+    login({ phone });
+
+    // SplashScreen handles routing; going back to Splash re-triggers the effect
+    navigation.replace("Splash");
   };
 
   return (
@@ -45,7 +53,7 @@ export default function OtpVerificationScreen({ navigation, route }) {
         onPress={onVerify}
         className="mt-5 h-14 items-center justify-center rounded-xl bg-primary"
       >
-        <Text className="text-base font-bold text-white">Verify & Continue</Text>
+        <Text className="text-base font-bold text-white">Verify &amp; Continue</Text>
       </TouchableOpacity>
 
       <TouchableOpacity className="mt-4 items-center">
