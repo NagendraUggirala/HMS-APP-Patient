@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { API_BASE_URL } from '../config/api';
 
 /**
  * A standard fetch wrapper that adds Authorization headers and handles JSON.
@@ -59,7 +60,10 @@ export async function apiFetch(url, options = {}) {
       config.body = JSON.stringify(config.body);
     }
 
-    const response = await fetch(url, config);
+    // Ensure the URL is absolute for React Native's fetch
+    const absoluteUrl = url.startsWith('http') ? url : `${API_BASE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
+
+    const response = await fetch(absoluteUrl, config);
 
     // Note: We return the raw response object because the caller 
     // (patientApi.js) expects to call .json() and check .ok themselves.
