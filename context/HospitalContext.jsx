@@ -9,7 +9,7 @@ export const HospitalProvider = ({ children }) => {
   const config = {
     hospitalId: extra.HOSPITAL_ID || "apollo",
     hospitalName: extra.APP_NAME || "Apollo Hospitals",
-    apiBaseUrl: extra.API_BASE_URL || "https://hospital-backend-9mg3.onrender.com",
+    apiBaseUrl: extra.API_BASE_URL || "https://hms-backend-t9m3.onrender.com",
     branding: {
       primaryColor: extra.PRIMARY_COLOR || "#1C3F60",
       secondaryColor: extra.SECONDARY_COLOR || "#FDBA21",

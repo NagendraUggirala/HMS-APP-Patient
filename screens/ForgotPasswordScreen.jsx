@@ -31,7 +31,7 @@ export default function ForgotPasswordScreen({ navigation }) {
 
     setLoading(true);
     try {
-      const response = await fetch("https://hospital-backend-9mg3.onrender.com/api/v1/auth/patient/forgot-password", {
+      const response = await fetch("https://hms-backend-t9m3.onrender.com/api/v1/auth/patient/forgot-password", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
