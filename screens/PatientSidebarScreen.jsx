@@ -60,14 +60,16 @@ export default function PatientSidebarScreen({ navigation, activeScreen, closeDr
       </View>
 
       <ScrollView style={{ flex: 1, paddingTop: 10 }}>
-        <NavItem label="Dashboard Overview" icon="show-chart" screenName="DashboardOverview" />
+        <NavItem label="Patient Overview" icon="dashboard" screenName="PatientOverview" />
         <NavItem label="My Appointments" icon="event-available" screenName="Appointments" />
-        <NavItem label="Medical Records" icon="assignment" screenName="Records" />
+        <NavItem label="Medical Records" icon="assignment" screenName="MedicalRecords" />
+        <NavItem label="Discharge Summary" icon="description" screenName="DischargeSummary" />
         <NavItem label="Prescriptions" icon="medication" screenName="Prescriptions" />
         <NavItem label="Test Results" icon="biotech" screenName="TestResults" />
         <NavItem label="Billing & Payments" icon="credit-card" screenName="Billing" />
-        <NavItem label="Messages" icon="forum" screenName="Messages" />
         <NavItem label="My Profile" icon="person" screenName="Profile" />
+        <NavItem label="Messages" icon="forum" screenName="Messages" />
+        <NavItem label="Document Storage" icon="folder" screenName="DocumentStorage" />
 
 
         <View style={{ borderTopWidth: 1, borderTopColor: '#f1f5f9', marginTop: 15, paddingTop: 5 }}>
