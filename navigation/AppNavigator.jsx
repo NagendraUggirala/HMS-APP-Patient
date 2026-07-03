@@ -24,6 +24,8 @@ import TestResultsScreen from '../screens/PatientScreen/TestResultsScreen';
 import BillingPaymentsScreen from '../screens/PatientScreen/BillingPaymentsScreen';
 import MessagesScreen from '../screens/PatientScreen/MessagesScreen';
 import MyProfileScreen from '../screens/PatientScreen/MyProfileScreen';
+import DischargeSummaryScreen from '../screens/PatientScreen/DischargeSummaryScreen';
+import DocumentStorageScreen from '../screens/PatientScreen/DocumentStorageScreen';
 import { useAppContext } from '../context/AppContext';
 import PatientSidebarScreen from '../screens/PatientSidebarScreen';
 
@@ -36,7 +38,7 @@ const PatientStack = createNativeStackNavigator();
 
 
 function MainPatientContainer({ navigation }) {
-  const [activeScreen, setActiveScreen] = useState('DashboardOverview');
+  const [activeScreen, setActiveScreen] = useState('PatientOverview');
   const [drawerOpen, setDrawerOpen] = useState(false);
   const drawerAnim = useRef(new Animated.Value(-DRAWER_WIDTH)).current;
   const overlayAnim = useRef(new Animated.Value(0)).current;
@@ -83,14 +85,16 @@ function MainPatientContainer({ navigation }) {
           }}
         >
           {/* Main Patient Screens */}
-          <PatientStack.Screen name="DashboardOverview" component={DashboardOverviewScreen} />
+          <PatientStack.Screen name="PatientOverview" component={DashboardOverviewScreen} />
           <PatientStack.Screen name="Appointments" component={MyAppointmentsScreen} />
-          <PatientStack.Screen name="Records" component={MedicalRecordsScreen} />
+          <PatientStack.Screen name="MedicalRecords" component={MedicalRecordsScreen} />
+          <PatientStack.Screen name="DischargeSummary" component={DischargeSummaryScreen} />
           <PatientStack.Screen name="Prescriptions" component={PrescriptionsScreen} />
           <PatientStack.Screen name="TestResults" component={TestResultsScreen} />
           <PatientStack.Screen name="Billing" component={BillingPaymentsScreen} />
           <PatientStack.Screen name="Messages" component={MessagesScreen} />
           <PatientStack.Screen name="Profile" component={MyProfileScreen} />
+          <PatientStack.Screen name="DocumentStorage" component={DocumentStorageScreen} />
 
         </PatientStack.Navigator>
       </View>
