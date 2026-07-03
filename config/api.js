@@ -1,5 +1,5 @@
 // API Configuration
-export const API_BASE_URL = 'https://hms-backend-t9m3.onrender.com';
+export const API_BASE_URL = 'https://hms-backend-2av4.onrender.com';
 
 // Individual API Paths
 export const AUTH_PATIENT_LOGIN = '/api/v1/auth/patient/login';
